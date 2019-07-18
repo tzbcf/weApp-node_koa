@@ -1,0 +1,3 @@
+<image wx:if='{{!finishLoadFlag && type == 1}}' mode='{{mode}}' src='{{defaultImage}}' style='{{width ? "width:" + width : ""}};{{height ? "height:" + height : ""}}' />
+<view wx:if='{{!finishLoadFlag && type == 2}}' style='{{width ? "width:" + width : ""}};{{height ? "height:" + height : ""}};{{defaultColor ? "background:"+defaultColor : ""}}' > </view>
+<image mode='{{mode}}' class='{{finishLoadFlag ? "" : "before-load"}}' src='{{originalImage}}' bindload='finishLoad' style='{{finishLoadFlag && width ? "width:" + width : ""}};{{finishLoadFlag && height ? "height:" + height : ""}}' />

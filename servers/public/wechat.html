@@ -1,0 +1,116 @@
+<!--
+FileName : wechat.html
+ProjectName : myblog-vue.cli-3.0-node-ts
+Author : terrorblade
+Created Date: 2019-07-18 11:24:18
+Description : 
+-----
+Last Modified: 2019-07-18 16:13:32
+Modified By : 
+-----
+Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+        <title>测试</title>
+        <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="app">
+            <table id="table">
+                <tr>
+                    <td>姓名:</td>
+                    <td  class="name"></td>
+                </tr>
+                <tr>
+                    <td>头像:</td>
+                    <td>
+                        <img src="" class="url" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td >openid:</td>
+                    <td class="openid" ></td>
+                </tr>
+            </table>
+        </div>
+        <!-- built files will be auto injected -->
+        
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+        <script src="https://tdbucketdefault.oss-cn-shanghai.aliyuncs.com/web/vconsole.min.js"></script>
+        <script src="./base.js"></script>
+        <script>
+            class Init {
+                constructor() {
+                    window.vConsole = new window.VConsole();
+                    this.param = base.urlToObj(location.search);
+                    if (!this.param.code) {
+                        location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize` +
+                                `?appid=wxb9a4007069baec6b&` +
+                                `redirect_uri=${encodeURIComponent(location.href)}` +
+                                `&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`);
+
+                    } else {
+                        console.log("1-------")
+                        const res = sessionStorage.getItem('userInfo');
+                        console.log("2-------")
+
+                        if (!res) {
+                            this.getInfo().then(()=>{
+                                const ress = sessionStorage.getItem('userInfo');
+                                base.weShare('全村最帅等仔','全村的希望',ress.headimgurl,location.href);
+                            });
+                        } else {
+                        console.log("4-------")
+                            this.writeDom();
+                            base.weShare('全村最帅等仔','全村的希望',res.headimgurl,location.href);
+                        }
+                        console.log("5-------",res)
+
+                    }
+                }
+                async getInfo(){
+                    const param = {
+                        url: '/api/v1/wechat/getUserInfo',
+                        methods: 'POST',
+                        data: {
+                            code: this.param.code
+                        }
+                    };
+                    const res =await base.fetch(param);
+                    if (!res.errcode) {
+                        sessionStorage.setItem('userInfo', JSON.stringify(res));
+                        this.writeDom();
+                    } else {
+                        console.warn('登陆授权失败!')
+                    }
+                }
+                writeDom() {
+                    const res = JSON.parse(sessionStorage.getItem('userInfo'));
+                    const app = document.querySelector('#app');
+                    const name =  app.querySelector('.name');
+                    const url = app.querySelector('.url');
+                    const openid = app.querySelector('.openid');
+                    name.innerHTML = res.nickname;
+                    url.setAttribute('src',res.headimgurl);
+                    openid.innerHTML = res.openid;
+                }
+            };
+            new Init();
+        </script>
+    </body>
+</html>
+
+
+
+

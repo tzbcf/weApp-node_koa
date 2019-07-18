@@ -1,0 +1,50 @@
+<view class="container">
+    <tabar type="2"></tabar>
+    <view class="bg">
+        <view class="bgImg" style="background:url({{voiceObj.bigImg}}) center top no-repeat"></view>
+    </view>
+    <view class="main">
+        <view class="name ellipsis">{{voiceObj.publishName}}</view>
+        <view class="ring flex-center">
+            <!-- <image class="img" src="{{voiceObj.img}}"  animation="{{animationData}}" /> -->
+                <imageLoad 
+                          type="2" 
+                          defaultColor="#E2E2E2"
+                          originalImage="{{voiceObj.img}}"
+                          width="596rpx"
+                          height="596rpx"
+                          ></imageLoad>
+            <!-- <image 
+                class="img" src="{{voiceObj.img}}"  
+                 style="transform:rotate({{deg}}deg)"
+                  /> -->
+        </view>
+        <view class="plan align-between">
+            <view class="start">{{starTime}}</view>
+            <view class="progress">
+                <view class="after" style="width:{{470 * percentage}}rpx"></view>
+                <view class="before"></view>
+            </view>
+            <view class="end">{{endTime}}</view>
+        </view>
+        <view class="operation align-between">
+            <view class="mode">
+                <image src="{{modeIcon}}" />
+            </view>
+            <view class="left">
+                <image src="{{leftIcon}}" />
+            </view>
+            <view class="play" bindtap="player">
+                <image src="{{!play ? playerIcon : ( isLoading ? LoadingIcon : pauseIcon )   }}" class="{{play && isLoading ? 'isLoading':''}}" />
+            </view>
+            <view class="right">
+                <image src="{{rightIcon}}" />
+            </view>
+            <view class="list">
+                <image src="../../img/icon/icon_list@2x.png" />
+            </view>
+        </view>
+    </view>
+</view>
+
+

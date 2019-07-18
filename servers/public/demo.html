@@ -1,0 +1,342 @@
+<!--
+FileName : demo.html
+ProjectName : myblog-vue.cli-3.0-node-ts
+Author : terrorblade
+Created Date: 2019-07-18 16:55:10
+Description : 
+-----
+Last Modified: 2019-07-18 16:55:28
+Modified By : 
+-----
+Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
+-->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style type="text/css">
+            *{padding: 0;margin: 0;}
+            html body{
+                background: black;
+            }
+            .box1{
+                width: 600px;
+                height: 400px;
+                background: white;
+                border: 5px solid black;
+                margin-left: 0px;
+                margin-top: 100px;
+                border-radius: 0px 100%;
+                position: relative;
+                transform: rotate(-15deg);
+                overflow: hidden;
+                float: left;
+            }
+            .box2{
+                width: 600px;
+                height: 400px;
+                background: white;
+                border: 5px solid black;
+                margin-left: 0px;
+                margin-top: 100px;
+                border-radius: 100% 0px;
+                position: relative;
+                transform: rotate(15deg);
+                overflow: hidden;
+                float: right;
+            }
+            .xielunyan{
+                width: 200px;
+                height: 200px;
+                background: black;
+                border-radius: 50%;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-left: -100px;
+                margin-top: -100px;
+                box-shadow: 0px 0px 10px 10px #333;
+            }
+            .box1 .xielunyan{
+                animation: run1 3s infinite linear;
+            }
+            .box2 .xielunyan{
+                animation: run 3s infinite linear;
+            }
+            .tongkong{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: black;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-top: -25px;
+                margin-left: -25px;
+            }
+            .xing1,.xing2,.xing3{
+                width: 138px;
+                height: 138px;
+                border-radius: 100% 0px;
+                border: 2px black solid;
+                background: #b10a0a;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-top: -70px;
+                margin-left: -70px;
+                opacity: 0.6;
+                filter: alpha(opacity=60);
+            }
+            .xing2{
+                transform: rotate(60deg);
+            }
+            .xing3{
+                transform: rotate(120deg);
+            }
+            .quan1{
+                width: 300px;
+                height: 300px;
+                border: 2px solid black;
+                border-radius: 50%;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-top: -150px;
+                margin-left: -150px;
+            }
+            .box1 .quan1{
+                animation: run 3s infinite linear;
+            }
+            .box2 .quan1{
+                animation: run1 3s infinite linear;
+            }
+            .quan2{
+                width: 420px;
+                height: 420px;
+                border: 2px solid black;
+                border-radius: 50%;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-top: -210px;
+                margin-left: -210px;
+                animation: run 3s infinite linear;
+
+            }
+            .box1 .quan2{
+                animation: run 3s infinite linear;
+            }
+            .box2 .quan2{
+                animation: run1 3s infinite linear;
+            }
+            .quan3{
+                width: 520px;
+                height: 520px;
+                border: 2px solid black;
+                border-radius: 50%;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-top: -260px;
+                margin-left: -260px;
+                animation: run 3s infinite linear;
+
+            }
+            .box1 .quan3{
+                animation: run 3s infinite linear;
+            }
+            .box2 .quan3{
+                animation: run1 3s infinite linear;
+            }
+            span{
+                display: block;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                position: absolute;
+            }
+            .up{
+                width: 30px;
+                height: 30px;
+                background: black;
+                left: -15px;
+                top: 0px;
+            }
+            .down{
+                background: white;
+                left: -10px;
+                bottom: 0px;
+            }
+            .dou1,.dou2,.dou3{
+                width: 20px;
+                height: 40px;
+                background: black;
+                border-radius: 0px 20px 20px 0px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-top: -20px;
+                margin-left: -10px;
+            }
+            .quan1 .dou1{
+                transform: rotate(120deg) translateX(160px);
+            }
+            .quan1 .dou2{
+                transform: rotate(240deg) translateX(160px);
+            }
+            .quan1 .dou3{
+                transform: rotate(360deg) translateX(160px);
+            }
+            .quan2 .dou1{
+                transform: rotate(60deg) translateX(220px);
+            }
+            .quan2 .dou2{
+                transform: rotate(180deg) translateX(220px);
+            }
+            .quan2 .dou3{
+                transform: rotate(300deg) translateX(220px);
+            }
+            .quan3 .dou1{
+                transform: rotate(120deg) translateX(270px);
+            }
+            .quan3 .dou2{
+                transform: rotate(240deg) translateX(270px);
+            }
+            .quan3 .dou3{
+                transform: rotate(360deg) translateX(270px);
+            }
+            @keyframes run{
+                from{}
+                to{transform: rotate(360deg);}
+            }
+            @keyframes run1{
+                from{}
+                to{transform: rotate(-360deg);}
+            }
+        </style>
+    </head>
+    <body>
+        <!--左眼-->
+        <div class="box1">
+            <div class="yankuang">
+                <!--轮回眼-->
+                <div class="lunhuiyan">
+                    <div class="quan1">
+                        <div class="dou1">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                        <div class="dou2">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                        <div class="dou3">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                    </div>
+                    <div class="quan2">
+                        <div class="dou1">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                        <div class="dou2">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                        <div class="dou3">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                    </div>
+                    <div class="quan3">
+                        <div class="dou1">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                        <div class="dou2">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                        <div class="dou3">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--写轮眼-->
+                <div class="xielunyan">
+                    <div class="xing1"></div>
+                    <div class="xing2"></div>
+                    <div class="xing3"></div>
+                    <div class="tongkong"></div>
+                </div>
+            </div>
+        </div>
+        <!--右眼-->
+        <div class="box2">
+            <div class="yankuang">
+                <!--轮回眼-->
+                <div class="lunhuiyan">
+                    <div class="quan1">
+                        <div class="dou1">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                        <div class="dou2">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                        <div class="dou3">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                    </div>
+                    <div class="quan2">
+                        <div class="dou1">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                        <div class="dou2">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                        <div class="dou3">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                    </div>
+                    <div class="quan3">
+                        <div class="dou1">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                        <div class="dou2">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                        <div class="dou3">
+                            <span class="down"></span>
+                            <span class="up"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--写轮眼-->
+                <div class="xielunyan">
+                    <div class="xing1"></div>
+                    <div class="xing2"></div>
+                    <div class="xing3"></div>
+                    <div class="tongkong"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

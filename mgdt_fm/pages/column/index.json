@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+      "tabar": "/components/tabar/index",
+      "imageLoad": "/components/imageLoad/index"
+    }
+}

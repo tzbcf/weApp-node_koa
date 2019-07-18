@@ -1,0 +1,67 @@
+<view class="container">
+    <tabar type="2"></tabar>
+    <view class="mainAlbum">
+        <view class="top">
+            <view class="bg">
+                <view class="bgImg" style="background:url({{detail.img}}) center top no-repeat"></view>
+            </view>
+            <view class="main">
+                <view class="img">
+                    <image src="{{detail.img}}"></image>
+                </view>
+                <view class="intro">
+                    <view class="title ellipsis">{{detail.name}}</view>
+                    <view class="text ellipsis">{{detail.subhead}}</view>
+                    <view class="author align-center">
+                        <view class="img">
+                            <image src="{{detail.authorImg}}"></image>
+                        </view>
+                        <view class="name ellipsis">{{detail.authorName}}</view>
+                    </view>
+                    <view class="line"></view>
+                    <view class="sub align-between">
+                        <view class="name">已订阅<text>{{detail.contentsNum}}</text>人</view>
+                        <image src="../../img/icon/btn_dingyue@2x.png" class="btn" />
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="bottom">
+            <view class="operate align-between">
+                <view class="list flex-center">
+                    <view class="list-btn flex-center">
+                        <text>全部</text>
+                        <image src="../../img/icon/icon_dropdown@2x.png" />
+                    </view>
+                    <view class="list-count">共{{detail.contentsNum}}个声音</view>
+                </view>
+                <view class="play flex-center">
+                    <image class="play-icon" src="../../img/icon/icon_play@2x.png"></image>
+                    <view class="play-btn">全部播放</view>
+                </view>
+            </view>
+            <view class="data">
+                <view class="wrap align-center mb-28" wx:for="{{voiceData}}" wx:key="{{index}}">
+                    <view class="wrap-index">{{index+1}}</view>
+                    <view class="wrap-item">
+                        <view class="item-name ellipsis" bindtap="routerPage" data-obj="{{item}}">{{item.publishName}}</view>
+                        <view class="item-info align-center">
+                            <view class="info-text mr-8">{{item.issueDate}}</view>
+                            <view class="info-time align-center mr-8">
+                                <image src="../../img/icon/list_icon_time@2x.png" />
+                                <view class="info-text">{{item.time}}</view>
+                            </view>
+                            <view class="info-count align-center">
+                                <image src="../../img/icon/list_icon_erji@2x.png" />
+                                <view class="info-text">{{item.playCount}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+

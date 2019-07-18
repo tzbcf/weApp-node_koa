@@ -1,0 +1,6 @@
+[2019-05-07T18:02:18.947] [ERROR] errorLogger - 
+  mysql-operate --- {"code":"ER_NO_SUCH_TABLE","errno":1146,"sqlMessage":"Table 'blog.users_details' doesn't exist","sqlState":"42S02","index":0,"sql":"select * from users_details where userName = 'asbsadb';"} 
+
+[2019-05-07T18:39:46.709] [ERROR] errorLogger - 
+  mysql-operate --- {"code":"ER_NO_SUCH_TABLE","errno":1146,"sqlMessage":"Table 'blog.users_details' doesn't exist","sqlState":"42S02","index":0,"sql":"select * from users_details where userName = 'asbsadb';"} 
+

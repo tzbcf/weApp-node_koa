@@ -1,0 +1,32 @@
+/*
+ * FileName : index.wxss
+ * ProjectName : search
+ * Author : terrorblade
+ * Created Date: 2019-05-17 10:16:17
+ * Description : 
+ * -----
+ * Last Modified: 2019-05-23 15:23:15
+ * Modified By : 
+ * -----
+ * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
+ */
+.search-main{
+    width:672rpx;
+    height:68rpx;
+    background:rgba(242,242,242,1);
+    border-radius:36rpx;
+    vertical-align: middle;
+}
+.search-main input{
+    width:90%;
+    height:100%;
+    outline:none;
+    border:none;
+    text-align: center;
+    margin:0 auto;
+}
+
+
+
+
+
