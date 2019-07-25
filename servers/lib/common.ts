@@ -5,7 +5,7 @@
  * Created Date: 2019-01-08 17:22:20
  * Description : 
  * -----
- * Last Modified: 2019-07-18 10:41:46
+ * Last Modified: 2019-07-18 18:59:30
  * Modified By  : 
  * -----
  * Copyright (c) 2018 Huazhi Corporation. All rights reserved.
@@ -16,7 +16,7 @@ import * as moment from 'moment';
 import * as fsex from 'fs-extra';
 import * as jwt from 'jsonwebtoken';
 import * as path from 'path';
-import {LOGIN_USER} from '../interface/user';
+// import {LOGIN_USER} from '../interface/user';
 const request = require('request').defaults({
     'pool': { 'maxSockets': 5000 }
 });
@@ -133,7 +133,7 @@ class Person {
      * @fn 获取token
      * @param 传递用户信息
      */
-    getToken(data:LOGIN_USER):Promise<string>{
+    getToken(data:any):Promise<string>{
         return new Promise((resolve,reject)=>{
             const created = Math.floor(Date.now());
             jwt.sign({ 

@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "search": "/components/search/index",
-    "imageLoad": "/components/imageLoad/index"
-  }
-}
