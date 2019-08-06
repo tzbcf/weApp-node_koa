@@ -5,7 +5,7 @@
  * Created Date: 2019-01-09 09:38:21
  * Description : 
  * -----
- * Last Modified: 2019-01-09 10:31:46
+ * Last Modified: 2019-08-06 15:13:24
  * Modified By  : 
  * -----
  * Copyright (c) 2018 Huazhi Corporation. All rights reserved.
@@ -32,4 +32,5 @@ const upload = multer({ storage: storage });
  * 图片下载
  */
 router.post('/api/v1/common/uploadImg',upload.single('file'),common.uploadImg);
+router.get('/api/v1/common/cs',common.cs)
 export default router;

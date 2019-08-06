@@ -5,7 +5,7 @@
  * Created Date: 2019-01-21 15:45:12
  * Description : 
  * -----
- * Last Modified: 2019-07-18 15:21:01
+ * Last Modified: 2019-08-06 17:03:24
  * Modified By : 
  * -----
  * Copyright (c) 2019 XXX Corporation. All rights reserved.
@@ -16,11 +16,11 @@ import * as sha1 from 'sha1';
 import * as xml2js from 'xml2js';
 import * as crypto from 'crypto';
 import person from './common';
-import config from '../../../config/wechatConfig';
+import config from '../../config/wechatConfig';
 import {USER_TOKEN} from '../interface/weChat';
 import { Context } from 'vm';
 const parseString = xml2js.parseString;
-const configPath = '../../../config';
+const configPath = '../../config';
 class Wechat {
   private waAppid: string;
   private sessionKey: string;

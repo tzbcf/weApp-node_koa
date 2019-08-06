@@ -5,12 +5,12 @@
  * Created Date: 2019-01-08 17:22:20
  * Description : 
  * -----
- * Last Modified: 2019-07-18 18:59:30
+ * Last Modified: 2019-08-06 16:48:52
  * Modified By  : 
  * -----
  * Copyright (c) 2018 Huazhi Corporation. All rights reserved.
  */
-const configPath = '../../../config';
+const configPath = '../../config';
 import * as fs from 'fs';
 import * as moment from 'moment';
 import * as fsex from 'fs-extra';

@@ -5,7 +5,7 @@
  * Created Date: 2019-01-08 17:23:22
  * Description : 
  * -----
- * Last Modified: 2019-07-18 10:43:44
+ * Last Modified: 2019-08-06 16:48:56
  * Modified By  : 
  * -----
  * Copyright (c) 2018 Huazhi Corporation. All rights reserved.
@@ -13,7 +13,7 @@
 import * as log4js from 'log4js';
 import * as path from 'path';
 import person from './common';
-import logConfig from '../../../config/logConfig';
+import logConfig from '../../config/logConfig';
 class Logger {
     private logConfig:any;
     private resLogger:any;

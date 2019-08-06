@@ -5,7 +5,7 @@ Author : terrorblade
 Created Date: 2019-07-18 11:24:18
 Description : 
 -----
-Last Modified: 2019-07-18 16:13:32
+Last Modified: 2019-08-06 13:55:17
 Modified By : 
 -----
 Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -41,18 +41,23 @@ Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
                     <td class="openid" ></td>
                 </tr>
             </table>
+            <div>
+                <button>播放</button>
+                <button>暂停</button>
+                <audio id="audio"></audio>
+            </div>
         </div>
         <!-- built files will be auto injected -->
         
-        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
-        <script src="https://tdbucketdefault.oss-cn-shanghai.aliyuncs.com/web/vconsole.min.js"></script>
-        <script src="./base.js"></script>
-        <script>
+        <script  type="text/javascript" src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+        <script type="text/javascript" src="https://tdbucketdefault.oss-cn-shanghai.aliyuncs.com/web/vconsole.min.js"></script>
+        <script  type="text/javascript" src="./base.js"></script>
+        <script type="text/javascript">
+            window.vConsole = new window.VConsole();
             class Init {
                 constructor() {
-                    window.vConsole = new window.VConsole();
                     this.param = base.urlToObj(location.search);
                     if (!this.param.code) {
                         location.replace(`https://open.weixin.qq.com/connect/oauth2/authorize` +
@@ -61,23 +66,24 @@ Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
                                 `&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`);
 
                     } else {
-                        console.log("1-------")
-                        const res = sessionStorage.getItem('userInfo');
-                        console.log("2-------")
-
+                        const res = JSON.parse(sessionStorage.getItem('userInfo'));
                         if (!res) {
                             this.getInfo().then(()=>{
-                                const ress = sessionStorage.getItem('userInfo');
+                                const ress = JSON.parse(sessionStorage.getItem('userInfo'));
                                 base.weShare('全村最帅等仔','全村的希望',ress.headimgurl,location.href);
                             });
                         } else {
-                        console.log("4-------")
                             this.writeDom();
                             base.weShare('全村最帅等仔','全村的希望',res.headimgurl,location.href);
                         }
-                        console.log("5-------",res)
-
                     }
+                    // if (base.isWx()) {
+                    //     base.wxAudioPlay(() => {
+                    //         const audio = document.getElementById('audio');
+                    //         audio.setAttribute('src',this.a);
+                    //         audio.play();
+                    //     })
+                    // }
                 }
                 async getInfo(){
                     const param = {

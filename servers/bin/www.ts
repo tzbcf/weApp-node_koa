@@ -5,14 +5,14 @@
  * Created Date: 2019-01-08 15:47:13
  * Description : 
  * -----
- * Last Modified: 2019-07-18 10:50:01
+ * Last Modified: 2019-08-06 17:07:06
  * Modified By  : 
  * -----
  * Copyright (c) 2018 Huazhi Corporation. All rights reserved.
  */
 const ENV_DEFAULT = 'dev';
 const PORT_DEFAULT = 6060;
-const configPath = '../../../config';
+const configPath = '../../config';
 import * as http from 'http';
 import * as https from 'https';
 import * as fs from 'fs';
@@ -50,7 +50,7 @@ class Server {
     };
     private start():void{
         this.createHttp();
-        this.createHttps();
+        // this.createHttps();
         this.server.on('error',this.onerror);
         this.server.on('error',this.onListening);
     };

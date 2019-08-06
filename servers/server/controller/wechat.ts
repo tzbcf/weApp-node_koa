@@ -5,12 +5,12 @@
  * Created Date: 2019-01-18 11:14:34
  * Description : 
  * -----
- * Last Modified: 2019-07-18 15:29:45
+ * Last Modified: 2019-08-06 16:49:10
  * Modified By  : 
  * -----
  * Copyright (c) 2018 Huazhi Corporation. All rights reserved.
  */
-import config from '../../../../config/wechatConfig';
+import config from '../../../config/wechatConfig';
 import { Context, createContext } from 'vm';
 import status from '../../lib/status';
 import wecaht from '../../lib/wechat';

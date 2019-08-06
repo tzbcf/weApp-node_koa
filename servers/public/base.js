@@ -5,7 +5,7 @@
  * Created Date: 2019-07-18 11:36:38
  * Description : 
  * -----
- * Last Modified: 2019-07-18 16:14:05
+ * Last Modified: 2019-08-06 16:50:53
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -14,6 +14,7 @@
 class Base {
     constructor() {
         this.requrl='https://m.terrorblade.xyz';
+		window.vConsole = new window.VConsole();
     }
     urlToObj(str){
         try {
@@ -106,6 +107,40 @@ class Base {
             console.log("------ready-err",err);
         })
         console.log("-------",data)
+    }
+    async wxAudioPlay(callback){
+        const data = await this.fetch({
+            url: '/api/v1/wechat/getWechatConfig',
+            methods: 'POST',
+            data: {
+                url: url,
+            }
+        });
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: data.appId || '', // 必填，公众号的唯一标识
+            timestamp: data.timestamp || '', // 必填，生成签名的时间戳
+            nonceStr: data.nonceStr || '', // 必填，生成签名的随机串
+            signature: data.signature || '',// 必填，签名
+            jsApiList: [] // 必填，需要使用的JS接口列表
+        });
+        wx.ready((res) => {
+            // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+            console.log("------ready-res",res);
+            callback()
+        });
+        wx.error((err) => {
+            console.log("------ready-err",err);
+        })
+        console.log("-------",data)
+    }
+    isWx(){
+        const ua = navigator.userAgent.toLowerCase();
+        if (`${ua.match(/MicroMessenger/i)}` === 'micromessenger') { // 微信客服端
+          return true;
+        } else {
+          return false;
+        }
     }
 }
 const base = new Base();

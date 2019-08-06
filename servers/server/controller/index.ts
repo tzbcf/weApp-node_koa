@@ -5,14 +5,14 @@
  * Created Date: 2019-01-09 09:11:15
  * Description : 
  * -----
- * Last Modified: 2019-07-18 10:50:36
+ * Last Modified: 2019-08-06 16:50:19
  * Modified By  : 
  * -----
  * Copyright (c) 2018 Huazhi Corporation. All rights reserved.
  */
 import { Context } from "vm";
 import status from '../../lib/status';
-const configPath = '../../../../config';
+const configPath = '../../../config';
 const config = require(`${configPath}/config.${global['env']}`).default;
 class Common{
     constructor(){
@@ -29,5 +29,8 @@ class Common{
         }
 
     };
+    cs(ctx:Context):void{
+        ctx.body = status.success();
+    }
 };
 export default new Common();
