@@ -1,3 +1,0 @@
-[2019-05-07T17:49:51.535] [ERROR] errorLogger - 
-  mysql-connect --- {"code":"ER_ACCESS_DENIED_ERROR","errno":1045,"sqlMessage":"Access denied for user 'root'@'113.247.228.170' (using password: YES)","sqlState":"28000","fatal":true} 
-

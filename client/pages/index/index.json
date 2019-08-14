@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "v-button":"/components/button/index"
+  },
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "我是答题王",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
 }

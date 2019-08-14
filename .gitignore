@@ -1,9 +1,6 @@
 */node_modules
-*/config
+config/
 */.DS_Store
 .DS_Store
 
-
-
-
-
+./config/config.dev.ts

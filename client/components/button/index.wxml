@@ -1,0 +1,4 @@
+
+<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" wx:if="{{type===2}}" class="bgBlue">{{title}}</button>
+
+<button bindtap="router" wx:else class="{{type ===3 ?'bgWhite':'bgBlue'}}">{{title}}</button>

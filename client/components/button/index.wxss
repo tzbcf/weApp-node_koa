@@ -1,0 +1,27 @@
+/*
+ * FileName : index.wxss
+ * ProjectName : button
+ * Author : terrorblade
+ * Created Date: 2019-08-13 10:16:37
+ * Description : 
+ * -----
+ * Last Modified: 2019-08-13 11:34:52
+ * Modified By : 
+ * -----
+ * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
+ */
+
+.bgBlue{
+    background: #0079FE;
+    color: #fff;
+}
+.bgWhite{
+    background: #fff;
+    color:#0079FE;
+}
+button{
+    border-radius: 50rpx;
+}
+
+
+
