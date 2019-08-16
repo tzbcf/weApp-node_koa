@@ -5,7 +5,7 @@
  * Created Date: 2019-08-12 15:32:17
  * Description : 
  * -----
- * Last Modified: 2019-08-14 15:11:36
+ * Last Modified: 2019-08-16 17:57:22
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -18,19 +18,27 @@ import * as koaStatic from 'koa-static';
 import * as bodyparser from 'koa-bodyparser';
 import * as session from 'koa-session';
 import RouterModule from './src/router';
+import createTable from './src/model/createTable';
+import log from './src/model/log';
 // import logger from './lib/logger';
 // import commonRouter from './server/router/common';
 // import wechatRouter from './server/router/wechat';
 import historyApiFallback from './middleware/historyFillback';
-
 class App {
     public koa: koa.Application;
     constructor(){
-        global['env'] =  process.argv.slice(2)[0] || process.env.NODE_ENV || 'dev';
+        this.mysqlStart();
         this.koa = new koa();
         this.middleware();
         this.router();
         this.error();
+    }
+    mysqlStart() {
+        createTable.CREATE_TABLE();
+        log.INSERT_SYSTEM_LOG({
+            name:'1231',
+            detail:'123131313'
+        })
     }
     middleware () {
         this.koa.use(kosLogger());//日志

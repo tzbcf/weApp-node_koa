@@ -5,11 +5,12 @@
  * Created Date: 2019-08-12 15:32:30
  * Description : 
  * -----
- * Last Modified: 2019-08-13 11:10:24
+ * Last Modified: 2019-08-16 11:17:40
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
  */
+global['env'] =  process.argv.slice(2)[0] || process.env.NODE_ENV || 'dev';
 const configPath = '../../config';
 import App from '../app';
 import * as fs from 'fs';
@@ -17,7 +18,6 @@ import * as path from 'path';
 import * as http from 'http';
 import * as https from 'https';
 const debug: any = require('debug')('demo:server');
-
 class Start extends App {
     private server : any;
     private config : any;

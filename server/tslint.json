@@ -44,9 +44,7 @@
         "no-consecutive-blank-lines": [
             true
         ],
-        "no-console": [
-            false
-        ],
+        "no-console": false,
         "no-construct": false,
         "no-debugger": true,
         "no-duplicate-variable": true,
