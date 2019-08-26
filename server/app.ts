@@ -5,7 +5,7 @@
  * Created Date: 2019-08-12 15:32:17
  * Description : 
  * -----
- * Last Modified: 2019-08-16 17:57:22
+ * Last Modified: 2019-08-26 16:00:06
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -24,25 +24,26 @@ import log from './src/model/log';
 // import commonRouter from './server/router/common';
 // import wechatRouter from './server/router/wechat';
 import historyApiFallback from './middleware/historyFillback';
+import routerLoger from './middleware/routerLoger';
 class App {
     public koa: koa.Application;
     constructor(){
-        this.mysqlStart();
         this.koa = new koa();
+        this.init();
+    }
+    async init(){
+        await this.mysqlStart();
         this.middleware();
         this.router();
         this.error();
     }
-    mysqlStart() {
-        createTable.CREATE_TABLE();
-        log.INSERT_SYSTEM_LOG({
-            name:'1231',
-            detail:'123131313'
-        })
+    async mysqlStart() {
+        await createTable.CREATE_TABLE();
     }
     middleware () {
         this.koa.use(kosLogger());//日志
         this.koa.use(historyApiFallback());//vue打包的history模式
+        this.koa.use(routerLoger);
         this.koa.use(koaStatic(path.join(__dirname, './public')));//静态容器
         this.koa.use(jsonBody());//json解析
         this.koa.use(bodyparser({
@@ -71,8 +72,10 @@ class App {
     }
     error () {
         process.on('uncaughtException', (err: any): void => {
-            console.error(JSON.stringify(err.stack));
-            // logger.logError(JSON.stringify(err.stack), 'uncaughtException');
+            log.INSERT_SYSTEM_LOG({
+                name:'uncaughtException',
+                detail:JSON.stringify(err.stack)
+            })
         });
     }
 }

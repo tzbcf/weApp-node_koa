@@ -5,7 +5,7 @@
  * Created Date: 2019-08-14 11:23:57
  * Description : 
  * -----
- * Last Modified: 2019-08-14 15:31:52
+ * Last Modified: 2019-08-26 17:03:04
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -22,8 +22,10 @@ router.get('/api/v1/log/getLogDetail', (ctx:Context)=>{
     ctx.body = '2';
 });
 
-router.get('/api/v1/log/setLog', (ctx:Context)=>{
-    ctx.body = '3';
+router.post('/api/v1/log/setLog', (ctx:Context)=>{
+    ctx.body = {
+        a:1
+    };
 });
 
 module.exports = router;
