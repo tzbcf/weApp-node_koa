@@ -5,7 +5,7 @@
  * Created Date: 2019-08-12 15:32:17
  * Description : 
  * -----
- * Last Modified: 2019-08-26 16:00:06
+ * Last Modified: 2019-08-30 11:05:20
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -72,6 +72,7 @@ class App {
     }
     error () {
         process.on('uncaughtException', (err: any): void => {
+            console.warn('app------err', err);
             log.INSERT_SYSTEM_LOG({
                 name:'uncaughtException',
                 detail:JSON.stringify(err.stack)

@@ -5,7 +5,7 @@
  * Created Date: 2019-08-16 11:03:58
  * Description : 
  * -----
- * Last Modified: 2019-08-26 15:50:54
+ * Last Modified: 2019-08-30 11:29:01
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -25,12 +25,12 @@ class Db {
         return new Promise((resolve, reject) => {
             mysqlClient.getConnection((err, connection) => {
                 if (err) {
-                    console.warn('errs----------0',err);
+                    console.warn('sql----------err',err);
                     reject(err);
                 } else {
                     connection.query(sql, (errs, rows) => {
                         if (errs) {
-                            console.warn('errs----------1',errs);
+                            console.warn('sql----------errs',errs);
                             reject(errs);
                         } else {
                             resolve(rows);
