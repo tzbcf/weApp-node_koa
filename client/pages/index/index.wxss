@@ -1,21 +1,18 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+/*
+ * FileName : index.wxss
+ * ProjectName : index
+ * Author : terrorblade
+ * Created Date: 2019-09-02 11:27:15
+ * Description : 
+ * -----
+ * Last Modified: 2019-09-02 11:27:16
+ * Modified By : 
+ * -----
+ * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
+ */
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
 
-.userinfo-nickname {
-  color: #aaa;
-}
 
-.usermotto {
-  margin-top: 200px;
-}
+
+
+

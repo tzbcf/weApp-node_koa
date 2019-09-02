@@ -4,15 +4,15 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
-		"nodeModules": false,
-		"autoAudits": false,
+		"nodeModules": true,
+		"autoAudits": true,
 		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
@@ -24,9 +24,9 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.6",
-	"appid": "wxfc279cd315e918b2",
-	"projectname": "mgdt_WeApp",
+	"libVersion": "2.5.0",
+	"appid": "wx61f477a6ac0e209a",
+	"projectname": "weApp",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

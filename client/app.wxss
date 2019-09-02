@@ -1,8 +1,29 @@
 /**app.wxss**/
+@import './miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
 page{
   width: 100%;
   height: 100%;
 }
 .container {
   min-height: 100%;
-} 
+}
+.space-between{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ellipsis2{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient: vertical;
+}
+button::after {
+  border: none;
+}

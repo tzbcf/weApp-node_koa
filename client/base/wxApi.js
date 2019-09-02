@@ -5,7 +5,7 @@
  * Created Date: 2019-08-12 17:27:33
  * Description : 
  * -----
- * Last Modified: 2019-08-13 11:54:37
+ * Last Modified: 2019-08-22 10:54:01
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -51,6 +51,106 @@ class WxApi extends Base{
                 wx.navigateTo({url:obj.url});
                 break;
         }
+    }
+    /**
+     * 
+     * @param 复制剪贴板
+     * str 需要复制的内容
+     */
+    setClipboardData(str){
+        return new Promise((resolve,reject)=>{
+            wx.setClipboardData({
+                data: str,
+                success (res) {
+                    resolve(res);
+                },
+                fail(err){
+                    reject(err);
+                }
+            })
+        })
+    }
+    /**
+     * 获取复制的内容
+     */
+    getClipboardData(){
+        return new Promise((resolve,reject)=>{
+            wx.getClipboardData({
+                success (res) {
+                    resolve(res);
+                },
+                fail(err){
+                    reject(err);
+                }
+            })
+        })
+    }
+    /**
+     * 登陆
+     */
+    login(){
+        return new Promise((resolve,reject)=>{
+            wx.login({
+                timeout:5000,
+                success(res){
+                    if (res.code) {
+                        resolve(res.code);
+                    } else {
+                        reject()
+                    }
+                },
+                fail(){
+                    reject()
+                }
+            })
+        })
+    }
+    /**
+     * 获取缓存数据
+     */
+    getStorage(key){
+        return new Promise((resolve,reject)=>{
+            wx.getStorage({
+                key,
+                success (res) {
+                    resolve(res.data);
+                },
+                fail(){
+                    resolve()
+                }
+              })
+        })
+    }
+    /**
+     * 微信登陆授权
+     *
+     */
+    getUserInfo(){
+        return new Promise((resolve,reject)=>{
+            wx.getUserInfo({
+                success(res) {
+                    resolve(res.userInfo);
+                },
+                fail(){
+                    reject();
+                }
+            })
+        })
+    }
+    /**
+     *  获取微信授权信息
+     * */
+    getSetting(){
+        return new Promise((resolve,reject)=>{
+            wx.getSetting({
+                success(res) {
+                    resolve(res);
+                },
+                fail(){
+                    reject();
+                }
+            })
+        })
     }
 }
 export default WxApi;

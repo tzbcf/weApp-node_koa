@@ -1,4 +1,5 @@
-<!--index.wxml-->
 <view class="container">
-    <v-button title="开始答题" bindtap="set" type="{{type}}" route="{{routeOption}}"></v-button>
-</view>
+    <mp-loading type="circle"></mp-loading>
+</view>>
+
+
