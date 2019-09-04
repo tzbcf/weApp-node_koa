@@ -29,6 +29,7 @@
     "require-directory": "^2.1.1",
     "sha1": "^1.1.1",
     "ts-node": "^7.0.1",
+    "tslib": "^1.10.0",
     "typescript": "^3.2.4"
   },
   "devDependencies": {}

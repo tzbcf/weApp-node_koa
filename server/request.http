@@ -1,0 +1,26 @@
+/*
+ * FileName : request.http
+ * ProjectName : ts-node
+ * Author : terrorblade
+ * Created Date: 2019-09-04 17:28:29
+ * Description : 
+ * -----
+ * Last Modified: 2019-09-04 17:44:14
+ * Modified By : 
+ * -----
+ * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
+ */
+
+###
+
+POST http://localhost:8000/api/v1/user/addWxAppUser HTTP/1.1
+Content-Type: application/json
+
+{
+	"a":"asbsadb",
+	"b":"asdadsada",
+	"c":1
+}
+
+
+

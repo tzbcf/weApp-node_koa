@@ -7,7 +7,7 @@ import { stringify } from 'querystring';
  * Created Date: 2019-08-30 14:52:49
  * Description : 
  * -----
- * Last Modified: 2019-09-04 16:58:40
+ * Last Modified: 2019-09-04 17:51:05
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -18,53 +18,68 @@ class ParamVerify {
      * @name 检验字符串
      * @param args 
      */
-    stringVerify(...args){
-        let flag = true;
-        args.forEach(v=>{
-            if (typeof v != "string") {
-                flag = false;
+    stringVerify(objects){
+        let obj = {
+            name: '',
+            flag: true
+        };
+        for (const key in objects) {
+            if (typeof objects[key] != 'string') {
+                obj.flag = false;
+                obj.name = key;
             }
-        });
-        return flag;
+        }
+        return obj;
     }
     /**
      * @name 检验字符串且长度不得超过16
      * @param args 
      */
     stringVerify_16(...args){
-        let flag = true;
+        let obj = {
+            name: '',
+            flag: true
+        };
         args.forEach(v=>{
             if (typeof v != "string" && v.length < 16) {
-                flag = false;
+                obj.flag = false;
+                obj.name = v;
             }
         });
-        return flag;
+        return obj;
     }
     /**
      * @name 检验字符串且长度不得超过32
      * @param args 
      */
     stringVerify_32(...args){
-        let flag = true;
+        let obj = {
+            name: '',
+            flag: true
+        };
         args.forEach(v=>{
             if (typeof v != "string" && v.length < 32) {
-                flag = false;
+                obj.flag = false;
             }
         });
-        return flag;
+        return obj;
     }
     /**
      * @name 检验数值类型
      * @param args 
      */
     numberVerify(...args){
-        let flag = true;
+        let obj = {
+            name: '',
+            flag: true
+        };
         args.forEach(v=>{
             if (typeof v != "number" && v.length < 32) {
-                flag = false;
+                obj.flag = false;
+                obj.name = v;
             }
         });
-        return flag;
+        return obj;
     }
     /**
      * 

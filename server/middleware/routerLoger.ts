@@ -5,22 +5,19 @@
  * Created Date: 2019-08-26 15:03:29
  * Description : 
  * -----
- * Last Modified: 2019-09-04 16:58:40
+ * Last Modified: 2019-09-04 17:37:28
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
  */
 import { Context } from 'vm';
 import log from '../src/model/log';
-
+import status from '../lib/status';
 export default async (ctx:Context,next:Function) => {
     const startTime = new Date().getTime();
     await next();
     if (ctx.status != 200) {
-        ctx.body = {
-            code: 404,
-            msg: '路由不存在'
-        }
+        ctx.body = status.code404();
         ctx.status = 404;
     }
     const endTime = new Date().getTime();
