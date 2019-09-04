@@ -1,11 +1,11 @@
 /**
  * FileName : db.ts
- * ProjectName : myblog-vue.cli-3.0-node-ts
+ * ProjectName : wxApp-server
  * Author : terrorblade
  * Created Date: 2019-08-16 11:03:58
  * Description : 
  * -----
- * Last Modified: 2019-09-04 16:48:51
+ * Last Modified: 2019-09-04 16:58:40
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.

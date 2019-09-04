@@ -1,6 +1,6 @@
 /*
  * FileName : createTable
- * ProjectName : myblog-vue.cli-3.0-node-ts
+ * ProjectName : wxApp-server
  * Author : terrorblade
  * Created Date: 2019-08-16 11:25:30
  * Description : 

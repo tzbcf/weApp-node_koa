@@ -2,12 +2,12 @@ import { stringify } from 'querystring';
 
 /**
  * FileName : parameter.ts
- * ProjectName : myblog-vue.cli-3.0-node-ts
+ * ProjectName : wxApp-server
  * Author : terrorblade
  * Created Date: 2019-08-30 14:52:49
  * Description : 
  * -----
- * Last Modified: 2019-09-04 15:46:00
+ * Last Modified: 2019-09-04 16:58:40
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
