@@ -1,7 +1,7 @@
 {
-  "name": "myblog-vue.cli-3.0-node-ts",
+  "name": "ts-node",
   "version": "0.0.1",
-  "description": "博客开发",
+  "description": "",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,6 +22,7 @@
     "koa-router": "^7.4.0",
     "koa-session": "^5.10.1",
     "koa-static": "^5.0.0",
+    "log4js": "^5.1.0",
     "moment": "^2.23.0",
     "mysql": "^2.16.0",
     "request": "^2.88.0",

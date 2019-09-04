@@ -7,7 +7,7 @@ import { stringify } from 'querystring';
  * Created Date: 2019-08-30 14:52:49
  * Description : 
  * -----
- * Last Modified: 2019-08-30 15:11:25
+ * Last Modified: 2019-09-04 15:46:00
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -66,6 +66,45 @@ class ParamVerify {
         });
         return flag;
     }
+    /**
+     * 
+     * @fn 检验参数是否是字符
+     * @param 传递一个字符串
+     */
+    isNumberOrLetter(str: string): boolean {
+        const regu = /^[0-9a-zA-Z]+$/;
+        if (regu.test(str)) {
+            return true;
+        }
+        return false;
+    };
+    /**
+     * 
+     * @fn 检验参数是否是邮箱
+     * @param 传递一个字符串
+     */
+    isEmail(str: string): boolean {
+        const myReg = /^[-_A-Za-z0-9]+@([_A-Za-z0-9]+.)+[A-Za-z0-9]{2,3}$/;
+        if (myReg.test(str)) return true;
+        return false;
+    };
+    /**
+     * 
+     * @fn 检验参数是否是邮箱
+     * @param 传递一个字符串
+     */
+    isJson(str: string): boolean {
+        if (typeof str == 'string') {
+            try {
+                JSON.parse(str);
+                return true;
+            } catch(e) {
+                return false;
+            }    
+        }else{
+            return false;
+        }
+    };
 }
 
 export default new ParamVerify();

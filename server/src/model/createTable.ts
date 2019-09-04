@@ -159,7 +159,7 @@ class CreatedTable extends Db {
      * school_remark 学校备注
      */
     async CREATE_SHCHOOL_NAME(){
-        const sql = `CREATE TABLE IF NOT EXISTS user_school(
+        const sql = `CREATE TABLE IF NOT EXISTS user_wxapp_school(
             school_id INT(4) NOT NULL AUTO_INCREMENT,
             school_name VARCHAR(32) NOT NULL,
             school_time DATETIME NOT NULL,
@@ -178,7 +178,7 @@ class CreatedTable extends Db {
      * dep_remark 院校备注
      */
     async CREATE_SCHOOL_DEPARTMENTS(){
-        const sql = `CREATE TABLE IF NOT EXISTS user_school_departments(
+        const sql = `CREATE TABLE IF NOT EXISTS user_wxapp_school_departments(
             dep_id INT(4) NOT NULL AUTO_INCREMENT,
             school_id INT(4) NOT NULL,
             dep_name VARCHAR(32) NOT NULL,
@@ -198,7 +198,7 @@ class CreatedTable extends Db {
      * spe_remark 备注
      */
     async CREATE_DEP_SPECIALTY(){
-        const sql = `CREATE TABLE IF NOT EXISTS user_dep_specialty(
+        const sql = `CREATE TABLE IF NOT EXISTS user_wxapp_dep_specialty(
             spe_id INT(11) NOT NULL AUTO_INCREMENT,
             dep_id INT(4) NOT NULL,
             spe_name VARCHAR(32) NOT NULL,
@@ -218,7 +218,7 @@ class CreatedTable extends Db {
      * class_remark 备注
      */
     async CREATE_CLASS_TABLE(){
-        const sql = `CREATE TABLE IF NOT EXISTS user_spe_class(
+        const sql = `CREATE TABLE IF NOT EXISTS user_wxapp_spe_class(
             class_id INT(11) NOT NULL AUTO_INCREMENT,
             spe_id INT(11) NOT NULL,
             class_name VARCHAR(32) NOT NULL,
@@ -237,7 +237,7 @@ class CreatedTable extends Db {
      * company_remark 备注
      */
     async CREATE_COMPANY_TABLE(){
-        const sql = `CREATE TABLE IF NOT EXISTS user_company(
+        const sql = `CREATE TABLE IF NOT EXISTS user_wxapp_company(
             company_id INT(11) NOT NULL AUTO_INCREMENT,
             company_name VARCHAR(32) NOT NULL,
             company_time DATETIME NOT NULL,

@@ -5,7 +5,7 @@
  * Created Date: 2019-08-12 15:32:17
  * Description : 
  * -----
- * Last Modified: 2019-08-30 11:05:20
+ * Last Modified: 2019-09-04 16:32:33
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -20,7 +20,7 @@ import * as session from 'koa-session';
 import RouterModule from './src/router';
 import createTable from './src/model/createTable';
 import log from './src/model/log';
-// import logger from './lib/logger';
+import logger from './lib/logger';
 // import commonRouter from './server/router/common';
 // import wechatRouter from './server/router/wechat';
 import historyApiFallback from './middleware/historyFillback';
@@ -36,6 +36,10 @@ class App {
         this.middleware();
         this.router();
         this.error();
+        logger.logConsole('info','start app');
+        logger.logError('info','start app');
+        logger.logInfo('info','start app');
+
     }
     async mysqlStart() {
         await createTable.CREATE_TABLE();
@@ -72,7 +76,6 @@ class App {
     }
     error () {
         process.on('uncaughtException', (err: any): void => {
-            console.warn('app------err', err);
             log.INSERT_SYSTEM_LOG({
                 name:'uncaughtException',
                 detail:JSON.stringify(err.stack)
