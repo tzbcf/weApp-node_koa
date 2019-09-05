@@ -5,7 +5,7 @@
  * Created Date: 2019-08-12 15:32:17
  * Description : 
  * -----
- * Last Modified: 2019-09-05 11:13:50
+ * Last Modified: 2019-09-05 15:20:44
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -19,12 +19,13 @@ import * as bodyparser from 'koa-bodyparser';
 import * as session from 'koa-session';
 import RouterModule from './src/router';
 import createTable from './src/model/createTable';
-import log from './src/model/log';
+import Log from './src/model/log';
 import logger from './lib/logger';
 // import commonRouter from './server/router/common';
 // import wechatRouter from './server/router/wechat';
 import historyApiFallback from './middleware/historyFillback';
 import routerLoger from './middleware/routerLoger';
+const logs = new Log();
 class App {
     public koa: koa.Application;
     constructor(){
@@ -77,7 +78,7 @@ class App {
     error () {
         process.on('uncaughtException', (err: any): void => {
             logger.logError('error',err);
-            log.INSERT_SYSTEM_LOG({
+            logs.INSERT_SYSTEM_LOG({
                 name:'uncaughtException',
                 detail:JSON.stringify(err.stack)
             })

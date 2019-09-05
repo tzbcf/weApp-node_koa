@@ -7,18 +7,18 @@ import { stringify } from 'querystring';
  * Created Date: 2019-08-30 14:52:49
  * Description : 
  * -----
- * Last Modified: 2019-09-05 10:28:09
+ * Last Modified: 2019-09-05 15:44:33
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
  */
-
+import {RETRUN_PARAM} from './interface/common';
 class ParamVerify {
     /**
      * @name 检验字符串
      * @param args 
      */
-    stringVerify(objects){
+    stringVerify(objects): RETRUN_PARAM{
         let obj = {
             name: '',
             flag: true
@@ -68,7 +68,7 @@ class ParamVerify {
      * @name 检验数值类型
      * @param args 
      */
-    numberVerify(objects){
+    numberVerify(objects): RETRUN_PARAM{
         let obj = {
             name: '',
             flag: true
@@ -120,6 +120,24 @@ class ParamVerify {
             return false;
         }
     };
+    /**
+     * 
+     * @param obj 需要检验的对象
+     * @param arr 需要检验的字符串
+     */
+    checkParamMust(obj:Object,arr:string[]): RETRUN_PARAM{
+        let objs = {
+            name: '',
+            flag: true
+        };
+        arr.forEach(v=>{
+            if (typeof obj[v] == 'undefined') {
+                objs.name = v;
+                objs.flag = false;
+            }
+        })
+        return objs;
+    }
 }
 
 export default new ParamVerify();

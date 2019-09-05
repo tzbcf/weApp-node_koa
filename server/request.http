@@ -5,7 +5,7 @@
  * Created Date: 2019-09-04 17:28:29
  * Description : 
  * -----
- * Last Modified: 2019-09-05 10:58:36
+ * Last Modified: 2019-09-05 16:58:40
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -19,7 +19,7 @@ Content-Type: application/json
 {
 	"openid":"asdadsasdsadaddasda",
 	"avatarUrl":"asdadadadsadasdadadasda",
-	"userName":"asdadsadadadasdadasdadasd",
+	"userName":"asdadsada",
 	"gender":1,
 	"school":"sadsadasdsadad",
 	"gradeTime":"2014级",

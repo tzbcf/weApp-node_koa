@@ -247,7 +247,6 @@ class CreatedTable extends Db {
         return await this.query(sql);
     }
 }
-
 export default new CreatedTable();
 
 

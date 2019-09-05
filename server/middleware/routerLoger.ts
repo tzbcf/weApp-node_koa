@@ -5,16 +5,17 @@
  * Created Date: 2019-08-26 15:03:29
  * Description : 
  * -----
- * Last Modified: 2019-09-05 11:23:32
+ * Last Modified: 2019-09-05 15:21:28
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
  */
 import { Context } from 'vm';
-import log from '../src/model/log';
+import Log from '../src/model/log';
 import status from '../lib/status';
 import Base from '../lib/base';
 const base = new Base();
+const logs = new Log();
 export default async (ctx:Context,next:Function) => {
     const startTime = new Date().getTime();
     await next();
@@ -30,7 +31,7 @@ export default async (ctx:Context,next:Function) => {
     } else {
         resBody = ctx.response.body;
     }
-    log.INSERT_SYSTEM_REQUEST_LOG({
+    logs.INSERT_SYSTEM_REQUEST_LOG({
         protocol:ctx.protocol,
         method:ctx.method,
         host:ctx.host,

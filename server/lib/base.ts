@@ -5,21 +5,18 @@
  * Created Date: 2019-09-04 15:35:27
  * Description : 
  * -----
- * Last Modified: 2019-09-04 15:51:50
+ * Last Modified: 2019-09-05 15:41:47
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
  */
-
 import * as fs from 'fs';
 import * as moment from 'moment';
 import * as fsex from 'fs-extra';
 import * as jwt from 'jsonwebtoken';
 import * as path from 'path';
-interface LOGIN_USER{
-    'userName':string,
-    'password':string
-}
+import {LOGIN_USER} from './interface/user';
+
 const request = require('request').defaults({
     'pool': { 'maxSockets': 5000 }
 });
