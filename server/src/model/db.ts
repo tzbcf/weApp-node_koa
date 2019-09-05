@@ -5,7 +5,7 @@
  * Created Date: 2019-08-16 11:03:58
  * Description : 
  * -----
- * Last Modified: 2019-09-04 16:58:40
+ * Last Modified: 2019-09-05 10:56:28
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -31,7 +31,7 @@ class Db {
                 } else {
                     connection.query(sql, (errs, rows) => {
                         if (errs) {
-                            logger.logError('query',JSON.stringify(err));
+                            logger.logError('query',JSON.stringify(errs));
                             reject(errs);
                         } else {
                             resolve(rows);

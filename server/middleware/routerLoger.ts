@@ -5,7 +5,7 @@
  * Created Date: 2019-08-26 15:03:29
  * Description : 
  * -----
- * Last Modified: 2019-09-04 17:37:28
+ * Last Modified: 2019-09-05 11:23:32
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -13,6 +13,8 @@
 import { Context } from 'vm';
 import log from '../src/model/log';
 import status from '../lib/status';
+import Base from '../lib/base';
+const base = new Base();
 export default async (ctx:Context,next:Function) => {
     const startTime = new Date().getTime();
     await next();
@@ -22,6 +24,12 @@ export default async (ctx:Context,next:Function) => {
     }
     const endTime = new Date().getTime();
     const token = ctx.request.header.token || '';
+    let resBody;
+    if (base.isJson(ctx.response.body)) {
+        resBody = JSON.parse(ctx.response.body);
+    } else {
+        resBody = ctx.response.body;
+    }
     log.INSERT_SYSTEM_REQUEST_LOG({
         protocol:ctx.protocol,
         method:ctx.method,
@@ -31,7 +39,7 @@ export default async (ctx:Context,next:Function) => {
         token:token,
         status:ctx.status,
         requestBody:JSON.stringify(ctx.request.body)||'',
-        responseBody:JSON.stringify(ctx.response.body)||'',
+        responseBody:JSON.stringify(resBody)||'',
         differenceTime: `${endTime-startTime}`
     });
 };

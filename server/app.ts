@@ -5,7 +5,7 @@
  * Created Date: 2019-08-12 15:32:17
  * Description : 
  * -----
- * Last Modified: 2019-09-04 16:58:40
+ * Last Modified: 2019-09-05 11:13:50
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -76,6 +76,7 @@ class App {
     }
     error () {
         process.on('uncaughtException', (err: any): void => {
+            logger.logError('error',err);
             log.INSERT_SYSTEM_LOG({
                 name:'uncaughtException',
                 detail:JSON.stringify(err.stack)

@@ -7,7 +7,7 @@ import { stringify } from 'querystring';
  * Created Date: 2019-08-30 14:52:49
  * Description : 
  * -----
- * Last Modified: 2019-09-04 17:51:05
+ * Last Modified: 2019-09-05 10:28:09
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -68,17 +68,17 @@ class ParamVerify {
      * @name 检验数值类型
      * @param args 
      */
-    numberVerify(...args){
+    numberVerify(objects){
         let obj = {
             name: '',
             flag: true
         };
-        args.forEach(v=>{
-            if (typeof v != "number" && v.length < 32) {
+        for (let key in objects) {
+            if (typeof objects[key] != "number") {
                 obj.flag = false;
-                obj.name = v;
+                obj.name = key;
             }
-        });
+        }
         return obj;
     }
     /**

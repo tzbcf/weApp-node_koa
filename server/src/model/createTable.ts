@@ -93,7 +93,7 @@ class CreatedTable extends Db {
             log_querystring VARCHAR(255),
             log_token VARCHAR(255),
             log_status VARCHAR(4),
-            log_request_body VARCHAR(255) NOT NULL,
+            log_request_body TEXT(65534) NOT NULL,
             log_response_body TEXT(65534) NOT NULL,
             log_difference_time VARCHAR(255) NOT NULL,
             log_time DATETIME NOT NULL,
