@@ -7,7 +7,7 @@ import App from "../app";
  * Created Date: 2019-09-04 17:25:57
  * Description : 
  * -----
- * Last Modified: 2019-09-05 17:03:40
+ * Last Modified: 2019-09-06 09:59:37
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -26,6 +26,10 @@ class Status{
             datas
         }        
     }
+    /**
+     * @name 缺少必须字段
+     * @param name 
+     */
     code101(name:string=''): API_STATUS{
         return {
             code:101,
@@ -33,12 +37,18 @@ class Status{
         }
     }
     /**
-     * 
+     * @name 参数字段数据不合法
      */
     code102(name:string='', msg:string=''): API_STATUS {
         return {
             code: 102,
             msg: '参数'+name+(msg?msg:'不合法')
+        }
+    }
+    code103(): API_STATUS{
+        return {
+            code: 103,
+            msg: '数据已存在'
         }
     }
     /**

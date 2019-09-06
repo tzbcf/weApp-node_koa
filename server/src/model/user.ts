@@ -5,7 +5,7 @@
  * Created Date: 2019-08-30 11:35:32
  * Description : 
  * -----
- * Last Modified: 2019-09-05 17:01:19
+ * Last Modified: 2019-09-06 10:26:49
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -67,6 +67,10 @@ class User extends Db{
      */
     async INSERT_USER_WXAPP_COMPANY(data:WXAPP_USER_COMPANY):Promise<any>{
         const sql = `insert into user_wxapp_company values (null,"${data.company}","${moment(new Date()).format('YYYY-MM-DD HH:mm:ss')}","${data.remark||''}");`;
+        return await this.query(sql);
+    }
+    async SELECT_WXUSER(name:string, val:string|number):Promise<any>{
+        const sql = `select user_openid from user_wxapp where ${name} = '${val}';`;
         return await this.query(sql);
     }
 }

@@ -5,7 +5,7 @@
  * Created Date: 2019-08-14 15:32:58
  * Description :
  * -----
- * Last Modified: 2019-09-05 17:03:52
+ * Last Modified: 2019-09-06 10:27:23
  * Modified By :
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -61,6 +61,11 @@ router.post("/api/v1/user/addWxAppUser",async (ctx: Context) => {
     const paramNum = verify.numberVerify({ gender });
     if (!paramNum.flag) {
       ctx.body = status.code102(paramNum.name);
+      return;
+    }
+    const res = await serviceUser.selectUser('user_openid',body.openid);
+    if (res.length) {
+      ctx.body = status.code103();
       return;
     }
     await serviceUser.addUser({gender,...body});

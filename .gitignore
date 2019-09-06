@@ -3,4 +3,3 @@ config/
 */.DS_Store
 .DS_Store
 */logs
-./config/config.dev.ts

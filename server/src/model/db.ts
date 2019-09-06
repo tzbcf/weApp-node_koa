@@ -5,13 +5,13 @@
  * Created Date: 2019-08-16 11:03:58
  * Description : 
  * -----
- * Last Modified: 2019-09-05 10:56:28
+ * Last Modified: 2019-09-06 09:56:31
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
  */
 
-const config = require(`../../../config/config.${global['env']}`).default;
+const config = require(`../../config/config.${global['env']}`).default;
 import logger from '../../lib/logger';
 import * as mysql from 'mysql';
 const mysqlClient = mysql.createPool({

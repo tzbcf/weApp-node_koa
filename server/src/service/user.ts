@@ -5,7 +5,7 @@
  * Created Date: 2019-09-05 15:15:40
  * Description : 
  * -----
- * Last Modified: 2019-09-05 17:28:38
+ * Last Modified: 2019-09-06 10:23:30
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -15,6 +15,9 @@ import Log from '../model/log';
 import {WXAPP_USER, WXAPP_USER_SCHOOL, WXAPP_USER_ID, WXAPP_USER_COMPANY} from '../../lib/interface/user';
 const logs = new Log();
 class User extends modelUser{
+    async selectUser(name:string, val:string|number): Promise<any>{
+        return await this.SELECT_WXUSER(name,val);
+    }
     /**
      * @name 添加微信小程序用户
      * @param objs 

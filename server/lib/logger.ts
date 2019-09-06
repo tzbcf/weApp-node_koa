@@ -5,7 +5,7 @@
  * Created Date: 2019-09-04 15:34:33
  * Description : 
  * -----
- * Last Modified: 2019-09-04 16:31:50
+ * Last Modified: 2019-09-06 09:56:19
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -14,7 +14,7 @@
 import * as log4js from 'log4js';
 import * as path from 'path';
 import Base from './base';
-import logConfig from '../../config/logConfig';
+import logConfig from '../config/logConfig';
 class Logger extends Base{
     private logConfig: any;
     private resLogger:any;

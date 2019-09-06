@@ -5,7 +5,7 @@
  * Created Date: 2019-09-04 15:35:27
  * Description : 
  * -----
- * Last Modified: 2019-09-05 15:41:47
+ * Last Modified: 2019-09-06 09:55:54
  * Modified By : 
  * -----
  * Copyright (c) 2019 芒果动听 Corporation. All rights reserved.
@@ -20,7 +20,7 @@ import {LOGIN_USER} from './interface/user';
 const request = require('request').defaults({
     'pool': { 'maxSockets': 5000 }
 });
-const config = require(`../../config/config.${global['env']}`).default; //系统配置
+const config = require(`../config/config.${global['env']}`).default; //系统配置
 class Base {
     constructor() {};
     /**
